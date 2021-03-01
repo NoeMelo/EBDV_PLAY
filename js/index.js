@@ -49,9 +49,6 @@ signupForm.addEventListener('submit',(e)=>{
     const signupEmail = document.querySelector('#signup-email').value;
     const signupPassword = document.querySelector('#signup-password').value;
 
-    console.log(signupEmail);
-    console.log(signupPassword);
-
     firebase.auth().createUserWithEmailAndPassword(signupEmail, signupPassword)
     .then((user) => {
       // Signed in
@@ -78,9 +75,6 @@ signinForm.addEventListener('submit',(e)=>{
 
     const signinEmail = document.querySelector('#signin-email').value;
     const signinPassword = document.querySelector('#signin-password').value;
-
-    console.log(signinEmail);
-    console.log(signinPassword);
 
     firebase.auth().signInWithEmailAndPassword(signinEmail, signinPassword)
     .then((user) => {
