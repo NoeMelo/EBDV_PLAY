@@ -65,6 +65,22 @@ table>tbody>tr{
     border-radius: 50%;
 }
 
+/*Ruleta*/
+.contenedor-ruleta{
+    color: #000;
+}
+.contenedor-ruleta .puntero{
+    padding: 0px 0px;
+    font-size: 30px;
+}
+#canvasPersonas{
+    cursor: pointer;
+}
+#canvasAcciones{
+    cursor: pointer;
+}
+
+
 
 /*Template*/
 

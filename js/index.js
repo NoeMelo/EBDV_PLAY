@@ -162,6 +162,7 @@ function deletePersonFirebase(id){
     var db = firebase.firestore();
     db.collection('person').doc(id).delete();
     getPersonsFirebase(user.uid);
+    getPersonasRuleta();//wheel.js reload person
 }
 
 function addPuntos(puntos, id){
@@ -208,8 +209,7 @@ const setPersons = data => {
             person.id = doc.id;
             const li = `
             <tr>
-                <th scope="row">${index}</th>
-                <th><span class="btn_delete fa fa-trash" data-id = "${person.id}"></span></th>
+                <th scope="row">${index} <span class="btn_delete fa fa-trash" data-id = "${person.id}"></span></th>
                 <td class="table-Light"> <p class = "nickname_item">${person.icon} ${person.nickname}</p></td>
                 <td class="table-danger item_table"><button type="button" class="btn btn-info btn1" data-id = "${person.id}">+${puntos[0]}</button></td>
                 <td class="table-danger item_table"><button type="button" class="btn btn-info btn2" data-id = "${person.id}">+${puntos[1]}</button></td>
@@ -364,6 +364,7 @@ addPersonOk.addEventListener('click',()=>{
     personPopup.style.display = "none";
     
     getPersonsFirebase(user.uid);
+    getPersonasRuleta();//wheel.js reload person
 });
 
 addPersonCancel.addEventListener('click',()=>{
@@ -381,6 +382,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       // User is signed in.
       console.log("User is signed in");
       getPersonsFirebase(user.uid);
+      getPersonasRuleta();//wheel.js reload person
 
     } else {
       // No user is signed in.

@@ -31,7 +31,7 @@
                       <a class="nav-link active" aria-current="page" href="./">Home</a>
                     </li>
                     <li class="nav-item logged-in" style="display: none;">
-                        <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#ModalRuleta" href="#">Ruleta</a>
+                        <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#ModalRuleta" href="#" id="btnRuletaModal">Ruleta</a>
                     </li>
                     <li class="nav-item logged-out" style="display: none;">
                       <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#ModalSignIn" href="#">Sign In</a>
@@ -50,12 +50,11 @@
     <!--Main Container-->
     <div class="container">
         <h1 class="text-center pt-2 logged-in" style="display: none;">Leaderboard</h1>
-
+      <div class="table-responsive">
         <table class="table table-hover logged-in" style="display: none;">
             <thead>
-              <tr class="">
+              <tr>
                 <th>#</th>
-                <th></th>
                 <th class="table_head_large">Nombre</th>
                 <th class="tamble_head_score">Ganador de Almas</th>
                 <th class="tamble_head_score">Memorización de Texto</th>
@@ -69,6 +68,7 @@
             <tbody id="persons">
             </tbody>
         </table>
+      </div>
     </div>
 
 
@@ -159,7 +159,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal WHEEL-->
 <div class="modal fade" id="ModalRuleta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -168,16 +168,43 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-           
-            <canvas id="canvas" width="434" height="434">
-                <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
-            </canvas>
 
+          <div class="row">
+            
+            <div class="col-xl-6">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">Participantes</h5>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+                  <div class="contenedor-ruleta">
+                    <li class="fa fa-arrow-down puntero"></li>
+                  </div>
+                  
+                  <canvas id="canvasPersonas" width="434" height="434">
+                    <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                  </canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-6">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">Accion</h5>
+
+                  <div class="contenedor-ruleta">
+                    <li class="fa fa-arrow-down puntero"></li>
+                  </div>
+                  
+                  <canvas id="canvasAcciones" width="434" height="434">
+                    <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                  </canvas>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </div>
