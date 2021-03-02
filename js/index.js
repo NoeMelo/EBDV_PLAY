@@ -59,6 +59,12 @@ signupForm.addEventListener('submit',(e)=>{
       
       $("#ModalSignup").modal("hide");
 
+      swal({
+        icon: "success",
+        timer: 2000,
+        buttons: false,
+      });
+
     })  
     .catch((error) => {
       var errorCode = error.code;
@@ -85,6 +91,12 @@ signinForm.addEventListener('submit',(e)=>{
         signinForm.reset();
       
         $("#ModalSignIn").modal("hide");
+
+        swal({
+            icon: "success",
+            timer: 2000,
+            buttons: false,
+        });
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -294,9 +306,15 @@ const setPersons = data => {
 
                     swal("¡El registro fue eliminado!", {
                         icon: "success",
+                        button: false,
+                        timer: 2000,
                       });
                     } else {
-                      swal("¡Este registro está seguro!");
+                      swal("¡Este registro está seguro!",{
+                          icon: "info",
+                          button: false,
+                          timer: 2000,
+                      });
                     }
                   });
                 /** *SWEET ALERT* END */
