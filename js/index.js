@@ -105,6 +105,11 @@ signinForm.addEventListener('submit',(e)=>{
     .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
+        swal("¡Datos Incorrectos! Intenta actualizando la página",{
+            icon: "error",
+            timer: 4000,
+            buttons: false,
+        });
     });
 
 });
