@@ -1,3 +1,26 @@
+/*home*/
+body {
+	background-color: #240041;
+
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	min-height: 100vh;
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(12, 12, 12, 0.5);
+}
+
+.title-leaderboard{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
 .navbar-nav > li{
     padding-left:10px; 
     padding-right:10px;
@@ -14,6 +37,7 @@ thead{
     background-color: teal;
     color: white;
     border-bottom: solid 5px #000;
+    justify-content: center;
 }
 .tamble_head_score{
     font-size: 15px;

@@ -221,15 +221,15 @@ const setPersons = data => {
             person.id = doc.id;
             const li = `
             <tr>
-                <th scope="row">${index} <span class="btn_delete fa fa-trash" data-id = "${person.id}"></span></th>
-                <td class="table-Light"> <p class = "nickname_item">${person.icon} ${person.nickname}</p></td>
+                <th scope="row" class = "table-danger">${index} <span class="btn_delete fa fa-trash" data-id = "${person.id}"></span></th>
+                <td class="table-warning"> <p class = "nickname_item">${person.icon} ${person.nickname}</p></td>
                 <td class="table-danger item_table"><button type="button" class="btn btn-info btn1" data-id = "${person.id}">+${puntos[0]}</button></td>
                 <td class="table-danger item_table"><button type="button" class="btn btn-info btn2" data-id = "${person.id}">+${puntos[1]}</button></td>
                 <td class="table-danger item_table"><button type="button" class="btn btn-info btn3" data-id = "${person.id}">+${puntos[2]}</button></td>
-                <td class="table-warning item_table"><button type="button" class="btn btn-info btn4" data-id = "${person.id}">+${puntos[3]}</button></td>
-                <td class="table-warning item_table"><button type="button" class="btn btn-info btn5" data-id = "${person.id}">+${puntos[4]}</button></td>
-                <td class="table-warning item_table"><button type="button" class="btn btn-info btn6" data-id = "${person.id}">+${puntos[5]}</button></td>
-                <td class="item_table"> <p class = "score_item">${person.score}</p></td>
+                <td class="table-success item_table"><button type="button" class="btn btn-info btn4" data-id = "${person.id}">+${puntos[3]}</button></td>
+                <td class="table-success item_table"><button type="button" class="btn btn-info btn5" data-id = "${person.id}">+${puntos[4]}</button></td>
+                <td class="table-success item_table"><button type="button" class="btn btn-info btn6" data-id = "${person.id}">+${puntos[5]}</button></td>
+                <td class="table-warning item_table"> <p class = "score_item">${person.score}</p></td>
             </tr>
             `;
             html +=li;

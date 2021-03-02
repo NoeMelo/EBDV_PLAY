@@ -85,9 +85,9 @@ btnRuletaModal.addEventListener('click',()=>{
         'textFontSize' : 28,    // Set font size as desired.
         'segments'     :        // Define segments including colour and text.
         [
-        {'fillStyle' : '#eae56f', 'text' : 'Contar'},
-        {'fillStyle' : '#89f26e', 'text' : 'Cantar'},
-        {'fillStyle' : '#7de6ef', 'text' : 'Decir'},
+        {'fillStyle' : '#eae56f', 'text' : 'Familia'},
+        {'fillStyle' : '#89f26e', 'text' : 'Amigos'},
+        {'fillStyle' : '#7de6ef', 'text' : 'Colegio'},
         ],
         'animation' :           // Specify the animation to use.
         {
