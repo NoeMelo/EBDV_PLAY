@@ -1,3 +1,7 @@
+$('.toggle').on('click', function() {
+    $('.container-home').toggleClass('nighty');
+  });
+
 //check login
 
 const LoggedOutLinks = document.querySelectorAll(".logged-out");
