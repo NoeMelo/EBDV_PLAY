@@ -63,7 +63,13 @@ btnRuletaModal.addEventListener('click',()=>{
             'type'     : 'spinToStop',
             'duration' : 5,     // Duration in seconds.
             'spins'    : 9,     // Number of complete spins.
-            'callbackFinished' : alertPrize
+            'callbackFinished' : alertPrize,
+            'callbackSound'    : playSound,   // Function to call when the tick sound is to be triggered.
+            'soundTrigger'     : 'pin'        // Specify pins are to trigger the sound, the other option is 'segment'.
+        },
+        'pins' :
+        {
+            'number' : ruletaNames.length   // Number of pins. They space evenly around the wheel.
         }
     });
     const btn_girar_personas = document.querySelector("#canvasPersonas");
@@ -94,7 +100,13 @@ btnRuletaModal.addEventListener('click',()=>{
             'type'     : 'spinToStop',
             'duration' : 5,     // Duration in seconds.
             'spins'    : 9,     // Number of complete spins.
-            'callbackFinished' : alertPrize
+            'callbackFinished' : alertPrize,
+            'callbackSound'    : playSound,   // Function to call when the tick sound is to be triggered.
+            'soundTrigger'     : 'pin',        // Specify pins are to trigger the sound, the other option is 'segment'.
+        },
+        'pins' :
+        {
+            'number' : 3 ,  // Number of pins. They space evenly around the wheel.
         }
     });
     const btn_girar_acciones = document.querySelector("#canvasAcciones");
@@ -145,7 +157,32 @@ function alertPrize(indicatedSegment)
             {
                 // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
                 // alert("You have won " + indicatedSegment.text);
+                playSoundClick(); // click sound 
                 swal({
                     title: indicatedSegment.text,
                   });
             }
+
+let audio = new Audio('./media/tick.mp3');
+
+function playSound()
+            {
+                // Stop and rewind the sound if it already happens to be playing.
+                audio.pause();
+                audio.currentTime = 0;
+
+                // Play the sound.
+                audio.play();
+                console.log("sonando");
+            }
+let audioClick = new Audio('./media/click.mp3');
+
+function playSoundClick()
+                        {
+                            // Stop and rewind the sound if it already happens to be playing.
+                            audioClick.pause();
+                            audioClick.currentTime = 0;
+            
+                            // Play the sound.
+                            audioClick.play();
+                        }
