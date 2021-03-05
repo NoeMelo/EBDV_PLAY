@@ -33,6 +33,9 @@
                     <li class="nav-item logged-in" style="display: none;">
                         <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#ModalRuleta" href="#" id="btnRuletaModal">Ruleta</a>
                     </li>
+                    <li class="nav-item logged-in" style="display: none;">
+                      <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#modalResume" href="#" id="btnResume">Top 3</a>
+                   </li>
                     <li class="nav-item logged-out" style="display: none;">
                       <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#ModalSignIn" href="#">Sign In</a>
                     </li>
@@ -151,6 +154,53 @@
       </div>
     </div>
   </div>
+
+<!--Modal Resume-->
+
+<!-- Modal -->
+<div class="modal fade" id="modalResume" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-xxl-down modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header custom-card-header"  style="background-color:transparent;" >
+        <h5 class="modal-title"id="exampleModalLabel">Top 3</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-xl-12">
+                <div class="top3" id="top3html">
+                  <!--CONTENT TOP3-->
+                </div>
+          </div>
+          
+          
+          <div class="col-xl-12">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="table_head_large">Posición</th>
+                  <th class="table_head_large">Nombre</th>
+                  <th class="table_head_large">Puntos</th>
+                </tr>
+              </thead>
+              <tbody id="tableTop3Body">
+                <!-- js-->
+              </tbody>
+            </table>
+            
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
   <!-- Modal WHEEL-->
 <div class="modal fade" id="ModalRuleta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

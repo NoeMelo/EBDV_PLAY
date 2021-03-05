@@ -417,3 +417,110 @@ firebase.auth().onAuthStateChanged(function(user) {
       persons.innerHTML = "<p class = 'text-center'> LogIn</p>";
     }
 });
+
+
+//top3 modal
+const top3html = document.querySelector("#top3html");
+
+const setPersonsTop3 = data => {
+    if (data.length) {
+        let top3 = [];
+        data.forEach(doc =>{
+            person = doc.data();
+            top3.push({
+                icon: person.icon,
+                nickname: person.nickname,
+                score: person.score
+            })
+        });
+        
+        let html = `
+        <div class="two item" style="background-color: rgb(145, 142, 142);">
+        <div class="name name_top">
+          <span class="score_top">2</span> 
+          <br>
+          <span class="icon_top">${top3[1].icon} </span> 
+          <br>
+          ${top3[1].nickname}
+          <br>
+          ${top3[1].score}
+        </div>
+      </div>
+      <div class="one item"  style="background-color: gold;">
+        <div class="name name_top">
+          <span class="score_top uno">1</span> 
+          <br>
+          <span class="icon_top">${top3[0].icon}</span> 
+          <br>
+          ${top3[0].nickname}
+          <br>
+          ${top3[0].score}
+        </div>
+      </div>
+      <div class="three item" style="background-color: rgb(224, 97, 5);">
+        <div class="name name_top">
+          <span class="score_top">3</span> 
+          <br>
+          <span class="icon_top">${top3[2].icon}</span> 
+          <br>
+          ${top3[2].nickname}
+          <br>
+          ${top3[2].score}
+        </div>
+      </div>
+        `;
+        top3html.innerHTML = html;
+    }
+}
+
+const tableTop3Body = document.querySelector("#tableTop3Body");
+
+const setPersonsTop = data => {
+    if (data.length) {
+        let html = '';
+        let index = 1;
+        data.forEach(doc =>{
+            person = doc.data();
+
+            if (index > 3) {
+                let li = `
+                <tr>
+                  <th scope="row" class="item_table"> <p class = "score_item">${index}</p></th>
+                  <td class="item_table"><p class = "nickname_item">${person.icon} ${person.nickname}</p></td>
+                  <td class="item_table"><p class = "score_item">${person.score}</p></td>
+                </tr>
+                `;
+                html +=li;
+            }
+            index +=1;  
+        });
+        
+        
+        tableTop3Body.innerHTML = html;
+    }
+}
+
+function getPersonsTop3Firebase(){    
+    var db = firebase.firestore();
+    var user = firebase.auth().currentUser;
+    db.collection("person").where("author", "==", user.uid).orderBy("score","desc").limit(3)
+        .get().then((querySnapshot) => {
+    
+            setPersonsTop3(querySnapshot.docs);
+    
+    });
+    db.collection("person").where("author", "==", user.uid).orderBy("score","desc")
+        .get().then((querySnapshot) => {
+    
+            setPersonsTop(querySnapshot.docs);
+    
+    });
+}
+
+const btnResume = document.querySelector("#btnResume");
+
+btnResume.addEventListener('click',()=>{
+    console.log("top3");
+    getPersonsTop3Firebase();
+});
+
